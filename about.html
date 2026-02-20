@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | Digitazium - Our Story & Team</title>
+  <meta name="description" content="Meet the Digitazium team. We are a remote-first, data-obsessed digital marketing agency dedicated to engineering growth for ambitious brands.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    /* ===== PAGE-SPECIFIC: ABOUT ===== */
+    .about-hero {
+      background: linear-gradient(135deg, var(--darker-green) 0%, var(--dark-green) 100%);
+      color: var(--white);
+      padding: 180px 0 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      top: -20%; left: -10%;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,162,39,0.15) 0%, transparent 70%);
+      animation: float 20s infinite ease-in-out;
+    }
+    .about-hero h1 {
+      font-size: 4rem;
+      margin-bottom: 25px;
+      position: relative;
+      z-index: 1;
+    }
+    .about-hero h1 span { color: var(--mustard); }
+    .about-hero p {
+      font-size: 1.4rem;
+      max-width: 750px;
+      margin: 0 auto 40px;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+    }
+    .about-hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+      margin-top: 40px;
+    }
+    .hero-stat {
+      text-align: center;
+      padding: 20px 30px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 16px;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.15);
+      min-width: 150px;
+    }
+    .hero-stat h3 {
+      font-size: 2.5rem;
+      color: var(--mustard);
+      margin-bottom: 5px;
+      font-weight: 800;
+    }
+    .hero-stat p { font-size: 0.95rem; opacity: 0.9; }
+
+    /* Mission Section */
+    .mission-section {
+      padding: 100px 0;
+      background: var(--white);
+      text-align: center;
+    }
+    .mission-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .mission-content h2 {
+      font-size: 2.8rem;
+      color: var(--dark-green);
+      margin-bottom: 30px;
+    }
+    .mission-content p {
+      font-size: 1.25rem;
+      color: var(--dark-gray);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .mission-highlight {
+      display: inline-block;
+      background: rgba(201,162,39,0.15);
+      color: var(--dark-green);
+      padding: 5px 15px;
+      border-radius: 8px;
+      font-weight: 700;
+      margin: 0 5px;
+    }
+
+    /* Values Grid */
+    .values-section {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    .value-card {
+      background: var(--white);
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 2px solid transparent;
+    }
+    .value-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--mustard);
+      box-shadow: var(--shadow-hover);
+    }
+    .value-icon {
+      width: 80px; height: 80px;
+      background: linear-gradient(135deg, var(--dark-green), #2a6b42);
+      color: var(--mustard);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 25px;
+      box-shadow: 0 10px 25px rgba(26,77,46,0.3);
+      animation: pulseIcon 3s infinite;
+    }
+    @keyframes pulseIcon {
+      0%, 100% { box-shadow: 0 10px 25px rgba(26,77,46,0.3); }
+      50% { box-shadow: 0 15px 35px rgba(201,162,39,0.5); }
+    }
+    .value-card h3 {
+      color: var(--dark-green);
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+    .value-card p { color: var(--gray); }
+
+    /* Timeline */
+    .timeline-section {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .timeline-container {
+      max-width: 900px;
+      margin: 50px auto 0;
+      position: relative;
+    }
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      background: linear-gradient(to bottom, var(--dark-green), var(--mustard));
+      border-radius: 2px;
+    }
+    .timeline-item {
+      display: flex;
+      justify-content: flex-end;
+      padding-bottom: 50px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+    .timeline-item:nth-child(even) {
+      align-self: flex-end;
+      justify-content: flex-start;
+      margin-left: 50%;
+    }
+    .timeline-dot {
+      position: absolute;
+      right: -10px;
+      top: 0;
+      width: 24px; height: 24px;
+      background: var(--mustard);
+      border: 4px solid var(--white);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(201,162,39,0.3);
+      z-index: 2;
+      animation: popIn 0.5s ease-out backwards;
+    }
+    .timeline-item:nth-child(even) .timeline-dot {
+      right: auto; left: -10px;
+    }
+    @keyframes popIn {
+      from { transform: scale(0); }
+      to { transform: scale(1); }
+    }
+    .timeline-content {
+      background: var(--cream);
+      padding: 25px;
+      border-radius: 16px;
+      width: 90%;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 2px solid transparent;
+    }
+    .timeline-content:hover {
+      border-color: var(--mustard);
+      transform: scale(1.03);
+    }
+    .timeline-year {
+      color: var(--mustard);
+      font-weight: 800;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .timeline-content h4 {
+      color: var(--dark-green);
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+    .timeline-content p { color: var(--gray); font-size: 0.95rem; }
+
+    /* Team Grid */
+    .team-section {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
+      margin-top: 50px;
+    }
+    .team-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+    }
+    .team-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+    }
+    .team-image {
+      height: 300px;
+      background: linear-gradient(135deg, #e0e0e0, #f5f5f5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray);
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .team-image::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(to top, rgba(26,77,46,0.9), transparent);
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .team-card:hover .team-image::after { opacity: 1; }
+    .team-social {
+      position: absolute;
+      bottom: 20px; left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: var(--transition);
+      z-index: 2;
+    }
+    .team-card:hover .team-social {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .team-social a {
+      width: 40px; height: 40px;
+      background: var(--mustard);
+      color: var(--dark-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .team-social a:hover {
+      background: var(--white);
+      transform: scale(1.1);
+    }
+    .team-info {
+      padding: 25px;
+      text-align: center;
+    }
+    .team-info h4 {
+      color: var(--dark-green);
+      font-size: 1.3rem;
+      margin-bottom: 5px;
+    }
+    .team-info span {
+      color: var(--mustard);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .team-info p {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    /* Culture Perks */
+    .culture-section {
+      padding: 100px 0;
+      background: var(--dark-green);
+      color: var(--cream);
+    }
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    .perk-item {
+      text-align: center;
+      padding: 30px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: var(--transition);
+    }
+    .perk-item:hover {
+      background: rgba(201,162,39,0.15);
+      border-color: var(--mustard);
+      transform: translateY(-5px);
+    }
+    .perk-icon {
+      font-size: 2.5rem;
+      color: var(--mustard);
+      margin-bottom: 20px;
+      display: block;
+    }
+    .perk-item h4 {
+      color: var(--white);
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    .perk-item p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+
+    /* CTA */
+    .about-cta {
+      background: linear-gradient(135deg, var(--mustard) 0%, #b89326 100%);
+      text-align: center;
+      padding: 90px 0;
+    }
+    .about-cta h2 {
+      color: var(--dark-green);
+      font-size: 2.8rem;
+      margin-bottom: 25px;
+    }
+    .about-cta p {
+      color: var(--darker-green);
+      max-width: 650px;
+      margin: 0 auto 35px;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    .about-cta .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .about-cta .btn {
+      background: var(--dark-green);
+      color: var(--white);
+      border-color: var(--dark-green);
+    }
+    .about-cta .btn-outline {
+      background: transparent;
+      color: var(--dark-green);
+      border-color: var(--dark-green);
+    }
+    .about-cta .btn-outline:hover {
+      background: var(--dark-green);
+      color: var(--white);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .timeline-container::before { left: 30px; }
+      .timeline-item { width: 100%; margin-left: 0 !important; justify-content: flex-start !important; padding-left: 70px; }
+      .timeline-dot { left: 18px !important; right: auto !important; }
+    }
+    @media (max-width: 768px) {
+      .about-hero { padding: 150px 0 80px; }
+      .about-hero h1 { font-size: 2.8rem; }
+      .about-hero-stats { flex-direction: column; align-items: center; gap: 20px; }
+      .hero-stat { width: 100%; max-width: 300px; }
+      .section { padding: 70px 0; }
+      .team-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">
+          <i class="fas fa-bolt"></i>
+          Digit<span>azium</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="case-studies.html">Results</a></li>
+          <li><a href="blog.html">Insights</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn nav-cta">
+          <i class="fas fa-gift"></i> Free Audit
+        </a>
+        <div class="mobile-toggle" id="mobileToggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- About Hero -->
+  <section class="about-hero">
+    <div class="container">
+      <h1 class="animate">We Are <span>Digitazium</span></h1>
+      <p class="animate delay-100">A remote-first team of data scientists, creatives, and strategists obsessed with one thing: engineering sustainable revenue growth for ambitious brands.</p>
+      <div class="about-hero-stats">
+        <div class="hero-stat animate zoom delay-200">
+          <h3><span class="counter" data-target="6" data-suffix="+"></span></h3>
+          <p>Years of Excellence</p>
+        </div>
+        <div class="hero-stat animate zoom delay-300">
+          <h3><span class="counter" data-target="40" data-suffix="+"></span></h3>
+          <p>Expert Team Members</p>
+        </div>
+        <div class="hero-stat animate zoom delay-400">
+          <h3><span class="counter" data-target="15" data-suffix="+" ></span></h3>
+          <p>Countries Served</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="mission-section">
+    <div class="container">
+      <div class="mission-content animate fade-up">
+        <h2>Our Mission: Democratizing Growth</h2>
+        <p>We believe every ambitious brand deserves access to enterprise-level marketing expertise. Too many agencies hide behind jargon and vanity metrics. We strip away the fluff.</p>
+        <p>Our mission is to <span class="mission-highlight">transparently engineer growth</span> using a hybrid of artificial intelligence and human creativity. We don't just run ads or write blogs — we build scalable revenue systems that withstand algorithm changes and market shifts.</p>
+        <p style="margin-top: 30px; font-weight: 600; color: var(--dark-green);">"Growth isn't an accident. It's engineered."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="values-section">
+    <div class="container">
+      <div class="section-title animate">
+        <h2>Core Values That Drive Us</h2>
+        <p>Our culture isn't just ping pong tables. It's the principles we uphold every single day.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card animate fade-up delay-100">
+          <div class="value-icon"><i class="fas fa-eye"></i></div>
+          <h3>Radical Transparency</h3>
+          <p>No black boxes. You see exactly where every dollar goes and what it returns. Real-time dashboards, honest communication.</p>
+        </div>
+        <div class="value-card animate fade-up delay-200">
+          <div class="value-icon"><i class="fas fa-brain"></i></div>
+          <h3>Data Over Opinion</h3>
+          <p>We don't guess. We test, measure, and iterate. Every decision is backed by evidence, not gut feeling.</p>
+        </div>
+        <div class="value-card animate fade-up delay-300">
+          <div class="value-icon"><i class="fas fa-rocket"></i></div>
+          <h3>Relentless Innovation</h3>
+          <p>The digital landscape changes monthly. We stay ahead of AI, algorithm updates, and consumer trends so you don't have to.</p>
+        </div>
+        <div class="value-card animate fade-up delay-400">
+          <div class="value-icon"><i class="fas fa-handshake"></i></div>
+          <h3>Partnership, Not Vendor</h3>
+          <p>We embed ourselves in your business. Your goals are our goals. We celebrate your wins as if they were our own.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="timeline-section">
+    <div class="container">
+      <div class="section-title animate">
+        <h2>Our Journey So Far</h2>
+        <p>From a small startup to a global growth partner.</p>
+      </div>
+      <div class="timeline-container">
+        <div class="timeline-item animate fade-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2018</span>
+            <h4>Founded in Garage</h4>
+            <p>Digitazium started with 2 founders and a mission to fix broken agency models.</p>
+          </div>
+        </div>
+        <div class="timeline-item animate fade-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2020</span>
+            <h4>Going Remote-First</h4>
+            <p>Pivoted to 100% remote work, unlocking global talent and 24/7 productivity.</p>
+          </div>
+        </div>
+        <div class="timeline-item animate fade-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2022</span>
+            <h4>$10M Revenue Milestone</h4>
+            <p>Our clients collectively surpassed $10M in attributed revenue growth.</p>
+          </div>
+        </div>
+        <div class="timeline-item animate fade-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2024</span>
+            <h4>AI Integration</h4>
+            <p>Launched proprietary AI tools for predictive analytics and content optimization.</p>
+          </div>
+        </div>
+        <div class="timeline-item animate fade-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2026</span>
+            <h4>Global Expansion</h4>
+            <p>Serving clients in 15+ countries with dedicated regional growth teams.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="container">
+      <div class="section-title animate">
+        <h2>Meet The Growth Engineers</h2>
+        <p>The experts behind your campaigns. No junior account managers here.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card animate zoom delay-100">
+          <div class="team-image">
+            <i class="fas fa-user"></i>
+            <div class="team-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="team-info">
+            <h4>Alex Mercer</h4>
+            <span>CEO & Founder</span>
+            <p>Ex-Google Ads Strategist. 15+ years scaling SaaS brands.</p>
+          </div>
+        </div>
+        <div class="team-card animate zoom delay-200">
+          <div class="team-image">
+            <i class="fas fa-user"></i>
+            <div class="team-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="team-info">
+            <h4>Sarah Chen</h4>
+            <span>Head of SEO</span>
+            <p>Technical SEO wizard. Recovered 50+ sites from penalties.</p>
+          </div>
+        </div>
+        <div class="team-card animate zoom delay-300">
+          <div class="team-image">
+            <i class="fas fa-user"></i>
+            <div class="team-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="team-info">
+            <h4>Marcus Johnson</h4>
+            <span>Director of Paid Media</span>
+            <p>Managed $50M+ ad spend. ROAS optimization expert.</p>
+          </div>
+        </div>
+        <div class="team-card animate zoom delay-400">
+          <div class="team-image">
+            <i class="fas fa-user"></i>
+            <div class="team-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="team-info">
+            <h4>Emily Rodriguez</h4>
+            <span>Lead Content Strategist</span>
+            <p>Storyteller who turns clicks into customers. Ex-Editor.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Culture Section -->
+  <section class="culture-section">
+    <div class="container">
+      <div class="section-title animate">
+        <h2 style="color: var(--white);">Life at Digitazium</h2>
+        <p style="color: var(--cream); opacity: 0.9;">We work hard, but we live well. Here's how we support our team.</p>
+      </div>
+      <div class="culture-grid">
+        <div class="perk-item animate fade-up delay-100">
+          <i class="fas fa-home perk-icon"></i>
+          <h4>Remote-First</h4>
+          <p>Work from anywhere. Home office stipend included.</p>
+        </div>
+        <div class="perk-item animate fade-up delay-200">
+          <i class="fas fa-book-reader perk-icon"></i>
+          <h4>Learning Stipend</h4>
+          <p>$2,000/year for courses, certifications, and conferences.</p>
+        </div>
+        <div class="perk-item animate fade-up delay-300">
+          <i class="fas fa-heartbeat perk-icon"></i>
+          <h4>Health & Wellness</h4>
+          <p>Full health coverage + mental health days.</p>
+        </div>
+        <div class="perk-item animate fade-up delay-400">
+          <i class="fas fa-plane perk-icon"></i>
+          <h4>Quarterly Offsites</h4>
+          <p>We meet in person 4 times a year in exciting locations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="about-cta">
+    <div class="container">
+      <h2 class="animate">Ready to Grow With Us?</h2>
+      <p class="animate delay-100">Whether you're looking for a marketing partner or a career change, we'd love to hear from you.</p>
+      <div class="about-cta btn-group">
+        <a href="contact.html" class="btn animate delay-200">
+          <i class="fas fa-briefcase"></i> Work With Us
+        </a>
+        <a href="#" class="btn btn-outline animate delay-300">
+          <i class="fas fa-users"></i> View Careers
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="grid footer-grid">
+        <div class="footer-col animate fade-up">
+          <h4>Digitazium</h4>
+          <p style="opacity: 0.92; margin-bottom: 25px; line-height: 1.6;">Data-driven digital marketing that delivers real revenue growth for ambitious B2B and DTC brands worldwide.</p>
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col animate fade-up delay-100">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html#seo"><i class="fas fa-chevron-right"></i> AI-Powered SEO</a></li>
+            <li><a href="services.html#ads"><i class="fas fa-chevron-right"></i> Performance Advertising</a></li>
+            <li><a href="services.html#content"><i class="fas fa-chevron-right"></i> Conversion Content</a></li>
+            <li><a href="services.html#web"><i class="fas fa-chevron-right"></i> Web Experience</a></li>
+            <li><a href="services.html#analytics"><i class="fas fa-chevron-right"></i> Analytics & CRO</a></li>
+          </ul>
+        </div>
+        <div class="footer-col animate fade-up delay-200">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+            <li><a href="case-studies.html"><i class="fas fa-chevron-right"></i> Case Studies</a></li>
+            <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Insights Blog</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col animate fade-up delay-300">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@digitazium.com"><i class="fas fa-envelope"></i> hello@digitazium.com</a></li>
+            <li><a href="tel:+15551234567"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
+            <li><a href="#"><i class="fas fa-map-marker-alt"></i> Global • Remote-First</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Digitazium. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // ===== TIMELINE ANIMATION ON SCROLL =====
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const timelineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          timelineObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    timelineItems.forEach(item => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(30px)';
+      item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      timelineObserver.observe(item);
+    });
+  </script>
+</body>
+</html>

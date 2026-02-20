@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services | Digitazium - Digital Marketing Solutions</title>
+  <meta name="description" content="Explore Digitazium's full suite of digital marketing services: AI-powered SEO, performance ads, conversion content, web development & analytics.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    /* ===== PAGE-SPECIFIC: SERVICES ===== */
+    .service-detail-hero {
+      background: linear-gradient(135deg, var(--darker-green) 0%, var(--dark-green) 100%);
+      color: var(--white);
+      padding: 180px 0 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-detail-hero::before {
+      content: '';
+      position: absolute;
+      top: -30%; right: -10%;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,162,39,0.12) 0%, transparent 70%);
+      animation: float 18s infinite ease-in-out;
+    }
+    .service-detail-hero h1 {
+      font-size: 3.8rem;
+      margin-bottom: 25px;
+      line-height: 1.2;
+      position: relative;
+      z-index: 1;
+    }
+    .service-detail-hero h1 span {
+      color: var(--mustard);
+      position: relative;
+    }
+    .service-detail-hero h1 span::after {
+      content: '';
+      position: absolute;
+      bottom: 10px; left: 0;
+      width: 100%; height: 14px;
+      background: rgba(201,162,39,0.25);
+      border-radius: 10px;
+      z-index: -1;
+      animation: underlineExpand 1.5s ease-out forwards;
+    }
+    @keyframes underlineExpand {
+      from { width: 0; left: 50%; }
+      to { width: 100%; left: 0; }
+    }
+    .service-detail-hero p {
+      font-size: 1.4rem;
+      max-width: 750px;
+      margin: 0 auto 40px;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+      position: relative;
+      z-index: 1;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.2);
+      animation: badgeFloat 3s ease-in-out infinite;
+    }
+    .badge:nth-child(2) { animation-delay: 0.5s; }
+    .badge:nth-child(3) { animation-delay: 1s; }
+    @keyframes badgeFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .badge i { color: var(--mustard); }
+
+    /* Service Sections */
+    .service-section {
+      padding: 100px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .service-section:last-of-type { border-bottom: none; }
+    .service-section:nth-child(even) { background: var(--white); }
+    .service-section:nth-child(odd) { background: var(--cream); }
+    
+    .service-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+    .service-content h2 {
+      font-size: 2.6rem;
+      color: var(--dark-green);
+      margin-bottom: 25px;
+      position: relative;
+      display: inline-block;
+    }
+    .service-content h2::after {
+      content: '';
+      position: absolute;
+      bottom: -12px; left: 0;
+      width: 60px; height: 4px;
+      background: var(--mustard);
+      border-radius: 2px;
+    }
+    .service-content > p {
+      font-size: 1.15rem;
+      margin-bottom: 30px;
+      color: var(--dark-gray);
+    }
+    .service-features {
+      margin: 35px 0;
+    }
+    .service-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 22px;
+      padding-left: 5px;
+    }
+    .service-features i {
+      color: var(--mustard);
+      font-size: 1.4rem;
+      margin-top: 4px;
+      flex-shrink: 0;
+      animation: iconPulse 2.5s infinite;
+    }
+    @keyframes iconPulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.15); opacity: 0.85; }
+    }
+    .service-features strong {
+      color: var(--dark-green);
+      font-weight: 600;
+    }
+    .service-cta {
+      margin-top: 30px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .service-visual {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-hover);
+      height: 450px;
+      background: linear-gradient(135deg, var(--dark-green), #2a6b42);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1.5rem;
+      text-align: center;
+      padding: 30px;
+      transition: var(--transition);
+    }
+    .service-visual:hover {
+      transform: scale(1.02);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+    }
+    .service-visual::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at 30% 30%, rgba(201,162,39,0.25) 0%, transparent 50%);
+      animation: gradientShift 8s ease-in-out infinite;
+    }
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    .visual-badge {
+      position: absolute;
+      top: 25px; right: 25px;
+      background: var(--mustard);
+      color: var(--dark-green);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      animation: badgeGlow 2s ease-in-out infinite;
+    }
+    @keyframes badgeGlow {
+      0%, 100% { box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+      50% { box-shadow: 0 8px 25px rgba(201,162,39,0.5); }
+    }
+
+    /* Process Timeline */
+    .process-section {
+      background: var(--white);
+      padding: 100px 0;
+    }
+    .process-timeline {
+      max-width: 900px;
+      margin: 50px auto 0;
+      position: relative;
+    }
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      top: 40px; left: 50%;
+      transform: translateX(-50%);
+      width: 4px; height: calc(100% - 80px);
+      background: linear-gradient(to bottom, var(--dark-green), var(--mustard));
+      border-radius: 2px;
+    }
+    .process-step {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 60px;
+      position: relative;
+      align-items: flex-start;
+    }
+    .process-step:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+    .step-number {
+      flex-shrink: 0;
+      width: 80px; height: 80px;
+      background: var(--dark-green);
+      color: var(--mustard);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 800;
+      border: 4px solid var(--mustard);
+      box-shadow: 0 10px 30px rgba(26,77,46,0.35);
+      position: relative;
+      z-index: 2;
+      animation: stepPulse 2s infinite;
+    }
+    @keyframes stepPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+    .step-content {
+      flex: 1;
+      background: var(--cream);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 2px solid transparent;
+    }
+    .step-content:hover {
+      border-color: var(--mustard);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+    .step-content h4 {
+      color: var(--dark-green);
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+    .step-content p { color: var(--gray); }
+
+    /* Tools & Tech */
+    .tools-section {
+      background: var(--dark-green);
+      color: var(--cream);
+      padding: 80px 0;
+      text-align: center;
+    }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 35px;
+      max-width: 1000px;
+      margin: 50px auto 0;
+    }
+    .tool-item {
+      padding: 25px 15px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.1);
+      transition: var(--transition);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .tool-item:hover {
+      background: rgba(201,162,39,0.2);
+      transform: translateY(-8px);
+      border-color: var(--mustard);
+    }
+    .tool-icon {
+      font-size: 2.5rem;
+      color: var(--mustard);
+      margin-bottom: 15px;
+      display: block;
+    }
+    .tool-name {
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    /* FAQ Accordion */
+    .faq-section {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: var(--white);
+      border-radius: 16px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: var(--transition);
+      border: 2px solid transparent;
+    }
+    .faq-item:hover {
+      border-color: var(--mustard);
+    }
+    .faq-question {
+      padding: 25px 30px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: var(--dark-green);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+    }
+    .faq-question:hover {
+      background: rgba(201,162,39,0.08);
+    }
+    .faq-question i {
+      color: var(--mustard);
+      transition: transform 0.3s ease;
+    }
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 30px;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding: 0 30px 25px;
+    }
+
+    /* Final CTA */
+    .services-cta {
+      background: linear-gradient(135deg, var(--mustard) 0%, #b89326 100%);
+      text-align: center;
+      padding: 90px 0;
+    }
+    .services-cta h2 {
+      color: var(--dark-green);
+      font-size: 2.8rem;
+      margin-bottom: 25px;
+    }
+    .services-cta p {
+      color: var(--darker-green);
+      max-width: 650px;
+      margin: 0 auto 35px;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    .services-cta .btn {
+      background: var(--dark-green);
+      color: var(--white);
+      border-color: var(--dark-green);
+      font-size: 1.1rem;
+      padding: 18px 45px;
+    }
+    .services-cta .btn:hover {
+      color: var(--dark-green);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 1024px) {
+      .service-layout { grid-template-columns: 1fr; gap: 50px; }
+      .service-visual { height: 400px; }
+      .process-timeline::before { left: 30px; }
+      .process-step { flex-direction: column !important; gap: 25px; }
+      .step-number { margin-left: 10px; }
+    }
+    @media (max-width: 768px) {
+      .service-detail-hero { padding: 150px 0 80px; }
+      .service-detail-hero h1 { font-size: 2.8rem; }
+      .service-detail-hero p { font-size: 1.15rem; }
+      .section { padding: 70px 0; }
+      .service-section { padding: 70px 0; }
+      .process-timeline::before { left: 25px; }
+      .step-number { width: 65px; height: 65px; font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">
+          <i class="fas fa-bolt"></i>
+          Digit<span>azium</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="case-studies.html">Results</a></li>
+          <li><a href="blog.html">Insights</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn nav-cta">
+          <i class="fas fa-gift"></i> Free Audit
+        </a>
+        <div class="mobile-toggle" id="mobileToggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Service Detail Hero -->
+  <section class="service-detail-hero">
+    <div class="container">
+      <h1 class="animate">Marketing Services <span>Engineered for Growth</span></h1>
+      <p class="animate delay-100">No generic tactics. No vanity metrics. Just strategic, data-powered solutions designed to attract your ideal customers, convert them efficiently, and turn them into loyal advocates.</p>
+      <div class="hero-badges">
+        <div class="badge animate delay-200"><i class="fas fa-award"></i> Google Premier Partner</div>
+        <div class="badge animate delay-300"><i class="fas fa-shield-alt"></i> Meta Business Partner</div>
+        <div class="badge animate delay-400"><i class="fas fa-brain"></i> AI-Optimized Strategies</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO Service -->
+  <section class="service-section" id="seo">
+    <div class="container">
+      <div class="service-layout">
+        <div class="service-content animate fade-right">
+          <h2>AI-Powered SEO & AEO</h2>
+          <p>Dominate traditional search AND prepare for the AI search revolution. Our SEO framework combines technical excellence, content authority, and AI optimization to ensure you're visible wherever your customers look.</p>
+          
+          <ul class="service-features">
+            <li><i class="fas fa-check-circle"></i> <strong>Technical SEO Audits:</strong> Fix crawl errors, speed issues, and structural problems that hold you back.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Keyword Intelligence:</strong> Target high-intent phrases with commercial value, not just search volume.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>AI Search Optimization (AEO):</strong> Optimize content for Google SGE, Perplexity, and other AI answer engines.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Local SEO Dominance:</strong> Rank in Google Maps and local packs to capture nearby customers ready to buy.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>E-E-A-T Building:</strong> Establish expertise, authority, and trust to satisfy Google's quality guidelines.</li>
+          </ul>
+          
+          <div class="service-cta">
+            <a href="contact.html" class="btn">
+              <i class="fas fa-search"></i> Get SEO Audit
+            </a>
+            <a href="#process" class="btn btn-outline">
+              <i class="fas fa-list-ol"></i> See Our Process
+            </a>
+          </div>
+        </div>
+        <div class="service-visual animate fade-left">
+          <div class="visual-badge">+340% Avg. Traffic Growth</div>
+          🔍 SEO Dashboard Preview<br>
+          <small style="font-weight: 400; opacity: 0.9; margin-top: 15px; display: block;">
+            Real-time rankings, traffic insights & AI visibility tracking
+          </small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paid Ads Service -->
+  <section class="service-section" id="ads">
+    <div class="container">
+      <div class="service-layout">
+        <div class="service-visual animate fade-right">
+          <div class="visual-badge">5.8X Avg. ROAS</div>
+          🎯 Ad Campaign Dashboard<br>
+          <small style="font-weight: 400; opacity: 0.9; margin-top: 15px; display: block;">
+            Cross-platform performance tracking & AI bid optimization
+          </small>
+        </div>
+        <div class="service-content animate fade-left">
+          <h2>Performance Advertising That Scales</h2>
+          <p>Stop wasting budget on clicks that don't convert. Our certified media buyers build hyper-targeted campaigns across Google, Meta, LinkedIn, and programmatic networks — all optimized for your bottom line.</p>
+          
+          <ul class="service-features">
+            <li><i class="fas fa-check-circle"></i> <strong>Strategic Campaign Architecture:</strong> Funnel-based structure that nurtures prospects from awareness to purchase.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>AI-Powered Bidding:</strong> Leverage machine learning to maximize conversions while controlling CPA.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Creative Testing Framework:</strong> Systematically test ad copy, visuals, and CTAs to find your winners.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Advanced Audience Targeting:</strong> Layer demographic, behavioral, and intent data to reach ready-to-buy customers.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Transparent Reporting:</strong> Real-time dashboards showing exactly how your ad spend drives revenue.</li>
+          </ul>
+          
+          <div class="service-cta">
+            <a href="contact.html" class="btn">
+              <i class="fas fa-bullseye"></i> Start Scaling Ads
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Service -->
+  <section class="service-section" id="content">
+    <div class="container">
+      <div class="service-layout">
+        <div class="service-content animate fade-right">
+          <h2>Conversion-Focused Content Strategy</h2>
+          <p>Content that doesn't convert is just noise. We create strategic, audience-centric content that builds trust, educates buyers, and drives action at every stage of the customer journey.</p>
+          
+          <ul class="service-features">
+            <li><i class="fas fa-check-circle"></i> <strong>Content Audits & Strategy:</strong> Map content to buyer journeys and identify high-impact opportunities.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>SEO-Optimized Copywriting:</strong> Blog posts, landing pages, and emails that rank AND convert.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Video Production:</strong> Explainer videos, testimonials, and social clips that boost engagement and trust.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Lead Magnets & Gated Content:</strong> E-books, webinars, and tools that capture qualified leads.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Brand Voice Development:</strong> Consistent, compelling messaging that differentiates you from competitors.</li>
+          </ul>
+          
+          <div class="service-cta">
+            <a href="contact.html" class="btn">
+              <i class="fas fa-pen-fancy"></i> Elevate Your Content
+            </a>
+          </div>
+        </div>
+        <div class="service-visual animate fade-left">
+          <div class="visual-badge">+89% Avg. Engagement Lift</div>
+          ✍️ Content Performance Dashboard<br>
+          <small style="font-weight: 400; opacity: 0.9; margin-top: 15px; display: block;">
+            Track reads, shares, time-on-page & conversion impact
+          </small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Web Development Service -->
+  <section class="service-section" id="web">
+    <div class="container">
+      <div class="service-layout">
+        <div class="service-visual animate fade-right">
+          <div class="visual-badge">+112% Avg. Conversion Lift</div>
+          💻 Web Experience Preview<br>
+          <small style="font-weight: 400; opacity: 0.9; margin-top: 15px; display: block;">
+            Blazing-fast, mobile-optimized, conversion-focused design
+          </small>
+        </div>
+        <div class="service-content animate fade-left">
+          <h2>Web Experiences That Convert</h2>
+          <p>Your website is your 24/7 salesperson. We build fast, beautiful, conversion-optimized websites that turn visitors into customers — and satisfy Google's Core Web Vitals for better rankings.</p>
+          
+          <ul class="service-features">
+            <li><i class="fas fa-check-circle"></i> <strong>Conversion-Centered Design:</strong> Every element engineered to guide users toward your goals.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Mobile-First Development:</strong> Flawless experiences on every device, prioritizing speed and usability.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Technical SEO Foundation:</strong> Clean code, schema markup, and site structure that helps you rank.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>CRM & Tool Integrations:</strong> Seamless connections to HubSpot, Salesforce, email platforms & more.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Ongoing Optimization:</strong> A/B testing, heatmaps, and iterative improvements post-launch.</li>
+          </ul>
+          
+          <div class="service-cta">
+            <a href="contact.html" class="btn">
+              <i class="fas fa-laptop-code"></i> Build Your Site
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Analytics Service -->
+  <section class="service-section" id="analytics">
+    <div class="container">
+      <div class="service-layout">
+        <div class="service-content animate fade-right">
+          <h2>Analytics & Conversion Optimization</h2>
+          <p>Stop guessing. Start knowing. We implement robust tracking, build intuitive dashboards, and run systematic tests to turn data into your most powerful growth lever.</p>
+          
+          <ul class="service-features">
+            <li><i class="fas fa-check-circle"></i> <strong>GA4 & Tag Manager Setup:</strong> Accurate, privacy-compliant tracking that actually tells you what matters.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Custom Dashboards:</strong> Real-time visibility into KPIs that drive your business — no data overload.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Conversion Rate Optimization (CRO):</strong> Hypothesis-driven testing to improve forms, CTAs, and user flows.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Attribution Modeling:</strong> Understand which channels truly drive revenue, not just last-click credit.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Predictive Analytics:</strong> Forecast trends and identify opportunities before your competitors do.</li>
+          </ul>
+          
+          <div class="service-cta">
+            <a href="contact.html" class="btn">
+              <i class="fas fa-chart-line"></i> Unlock Your Data
+            </a>
+          </div>
+        </div>
+        <div class="service-visual animate fade-left">
+          <div class="visual-badge">-45% Avg. CPA Reduction</div>
+          📊 Analytics Dashboard Preview<br>
+          <small style="font-weight: 400; opacity: 0.9; margin-top: 15px; display: block;">
+            Unified view of traffic, conversions, revenue & ROI
+          </small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process-section" id="process">
+    <div class="container">
+      <div class="section-title animate">
+        <h2>Our Growth Engineering Process</h2>
+        <p>Every engagement follows our proven 4-phase framework — adapted to your unique goals, audience, and competitive landscape.</p>
+      </div>
+      
+      <div class="process-timeline">
+        <div class="process-step animate fade-up">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>Discover & Diagnose</h4>
+            <p>We dive deep into your business, audience, competitors, and current marketing performance. No assumptions — just data-driven insights to identify your biggest growth opportunities.</p>
+          </div>
+        </div>
+        
+        <div class="process-step animate fade-up delay-100">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>Strategy & Blueprint</h4>
+            <p>Together, we define clear KPIs, map your customer journey, and build a customized growth plan with prioritized tactics, timelines, and resource allocation.</p>
+          </div>
+        </div>
+        
+        <div class="process-step animate fade-up delay-200">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Execute & Optimize</h4>
+            <p>Our dedicated team launches campaigns, creates content, and manages technical implementations — with weekly check-ins and real-time performance tracking.</p>
+          </div>
+        </div>
+        
+        <div class="process-step animate fade-up delay-300">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h4>Scale & Innovate</h4>
+            <p>Once we hit targets, we double down on what works, test new channels, and continuously refine your strategy to sustain long-term growth.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools & Tech -->
+  <section class="tools-section">
+    <div class="container">
+      <h2 class="animate">Powered by Industry-Leading Tools</h2>
+      <p class="animate delay-100" style="max-width: 600px; margin: 15px auto 0; opacity: 0.95;">
+        We leverage the best technology to deliver faster, smarter, more scalable results for your business.
+      </p>
+      
+      <div class="tools-grid">
+        <div class="tool-item animate zoom delay-100">
+          <i class="fab fa-google tool-icon"></i>
+          <div class="tool-name">Google Ads</div>
+        </div>
+        <div class="tool-item animate zoom delay-200">
+          <i class="fab fa-meta tool-icon"></i>
+          <div class="tool-name">Meta Ads</div>
+        </div>
+        <div class="tool-item animate zoom delay-300">
+          <i class="fas fa-chart-area tool-icon"></i>
+          <div class="tool-name">GA4</div>
+        </div>
+        <div class="tool-item animate zoom delay-400">
+          <i class="fas fa-search tool-icon"></i>
+          <div class="tool-name">SEMrush</div>
+        </div>
+        <div class="tool-item animate zoom delay-100">
+          <i class="fas fa-bolt tool-icon"></i>
+          <div class="tool-name">Ahrefs</div>
+        </div>
+        <div class="tool-item animate zoom delay-200">
+          <i class="fas fa-envelope tool-icon"></i>
+          <div class="tool-name">HubSpot</div>
+        </div>
+        <div class="tool-item animate zoom delay-300">
+          <i class="fas fa-vial tool-icon"></i>
+          <div class="tool-name">Optimizely</div>
+        </div>
+        <div class="tool-item animate zoom delay-400">
+          <i class="fas fa-brain tool-icon"></i>
+          <div class="tool-name">AI Tools</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-title animate">
+        <h2>Frequently Asked Questions</h2>
+        <p>Everything you need to know about working with Digitazium. Still have questions? We're just a click away.</p>
+      </div>
+      
+      <div class="faq-container">
+        <div class="faq-item animate fade-up">
+          <div class="faq-question">
+            How long does it take to see results?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>While every business is different, most clients see meaningful KPI improvements within 60-90 days. SEO typically takes 3-6 months for significant traction, while paid ads can generate leads in weeks. Our 90-Day Growth Guarantee ensures you see progress or we keep working at no extra cost.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item animate fade-up delay-100">
+          <div class="faq-question">
+            Do you work with businesses in my industry?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We've successfully partnered with B2B SaaS, e-commerce, healthcare, manufacturing, professional services, and more. While we don't work with direct competitors simultaneously, our cross-industry experience brings fresh perspectives and proven tactics to your unique challenges.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item animate fade-up delay-200">
+          <div class="faq-question">
+            What makes Digitazium different from other agencies?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Three things: 1) <strong>Revenue-first mindset:</strong> We tie every tactic to business outcomes, not just vanity metrics. 2) <strong>AI + human hybrid:</strong> We use technology for insights but rely on human strategy and creativity. 3) <strong>Transparent partnership:</strong> You get dedicated experts, real-time dashboards, and no long-term lock-in contracts.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item animate fade-up delay-300">
+          <div class="faq-question">
+            How do you measure success?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We define success together during onboarding. Common KPIs include: organic traffic growth, lead volume/quality, conversion rate, customer acquisition cost (CAC), return on ad spend (ROAS), and revenue attribution. You'll see these metrics in your custom dashboard, updated in real-time.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item animate fade-up delay-400">
+          <div class="faq-question">
+            What's your pricing model?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We offer flexible engagement models: monthly retainers for ongoing growth, project-based pricing for specific initiatives (like website builds), and performance-based options for qualified partners. After our free audit, we'll recommend the model that best aligns with your goals and budget — no pressure, just clarity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="services-cta">
+    <div class="container">
+      <h2 class="animate">Which Service Fits Your Growth Goals?</h2>
+      <p class="animate delay-100">Not sure where to start? Our free growth audit analyzes your current strategy and recommends the highest-impact opportunities — no obligation, just actionable insights.</p>
+      <a href="contact.html" class="btn animate delay-200">
+        <i class="fas fa-gift"></i> Get Your Free Audit
+      </a>
+      <p class="animate delay-300" style="margin-top: 25px; font-size: 0.95rem; opacity: 0.9;">
+        🔒 Zero spam. Zero pressure. Just growth opportunities.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="grid footer-grid">
+        <div class="footer-col animate fade-up">
+          <h4>Digitazium</h4>
+          <p style="opacity: 0.92; margin-bottom: 25px; line-height: 1.6;">Data-driven digital marketing that delivers real revenue growth for ambitious B2B and DTC brands worldwide.</p>
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col animate fade-up delay-100">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#seo"><i class="fas fa-chevron-right"></i> AI-Powered SEO</a></li>
+            <li><a href="#ads"><i class="fas fa-chevron-right"></i> Performance Advertising</a></li>
+            <li><a href="#content"><i class="fas fa-chevron-right"></i> Conversion Content</a></li>
+            <li><a href="#web"><i class="fas fa-chevron-right"></i> Web Experience</a></li>
+            <li><a href="#analytics"><i class="fas fa-chevron-right"></i> Analytics & CRO</a></li>
+          </ul>
+        </div>
+        <div class="footer-col animate fade-up delay-200">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+            <li><a href="case-studies.html"><i class="fas fa-chevron-right"></i> Case Studies</a></li>
+            <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Insights Blog</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col animate fade-up delay-300">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@digitazium.com"><i class="fas fa-envelope"></i> hello@digitazium.com</a></li>
+            <li><a href="tel:+15551234567"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
+            <li><a href="#"><i class="fas fa-map-marker-alt"></i> Global • Remote-First</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Digitazium. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // ===== FAQ ACCORDION FUNCTIONALITY =====
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        const isActive = item.classList.contains('active');
+        
+        // Close all items
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('active');
+        });
+        
+        // Toggle clicked item
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // ===== SMOOTH SCROLL FOR ANCHOR LINKS (enhanced for services page) =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const target = document.querySelector(targetId);
+        if (target) {
+          // Account for fixed header height
+          const headerOffset = 80;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
